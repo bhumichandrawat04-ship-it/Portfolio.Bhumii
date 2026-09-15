@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bhumi Chandrawat — Technology, Business &amp; AI</title>
+<meta name="description" content="Bhumi Chandrawat — BCA student at JECRC University building towards AI, technology and business solutions. Research, outreach, client acquisition and problem solving." />
+<meta name="author" content="Bhumi Chandrawat" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Bhumi Chandrawat — Technology, Business &amp; AI" />
+<meta property="og:description" content="Building clarity at the intersection of Technology, Business &amp; AI." />
+<meta property="og:type" content="website" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2315171B'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='%23F6F5F1' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,450;9..144,540&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --paper-alt:#EEEDE7;
+    --ink:#15171B;
+    --ink-soft:#5B5E63;
+    --ink-faint:#8B8D90;
+    --line:#DBD9D0;
+    --accent:#2E3A59;
+    --accent-soft:#8D97AE;
+    --accent-tint:#E7E9EF;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --maxw:1180px;
+    --edge: clamp(24px, 6vw, 96px);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--serif);
+    font-weight:540;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+
+  ::selection{background:var(--accent); color:var(--paper);}
+
+  img,svg{display:block; max-width:100%;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-left:var(--edge);
+    padding-right:var(--edge);
+  }
+
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; overflow:hidden;
+    clip:rect(0 0 0 0); white-space:nowrap;
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(246,245,241,0.82);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:padding .35s ease, border-color .35s ease;
+  }
+  header.site-nav.scrolled{
+    border-bottom-color:var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:26px var(--edge);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    transition:padding .35s ease;
+  }
+  header.site-nav.scrolled .nav-inner{
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .nav-mark{
+    font-family:var(--serif);
+    font-size:20px;
+    font-weight:540;
+    letter-spacing:-0.01em;
+  }
+  .nav-links{
+    display:flex;
+    gap:34px;
+    align-items:center;
+  }
+  .nav-links a{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    position:relative;
+    padding:4px 0;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{
+    content:'';
+    position:absolute; left:0; right:0; bottom:-2px;
+    height:1px; background:var(--accent);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .25s ease;
+  }
+  .nav-links a:hover::after{transform:scaleX(1);}
+
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:none;
+    width:32px; height:22px;
+    position:relative;
+    padding:0;
+  }
+  .nav-toggle span{
+    position:absolute; left:0; right:0; height:1.5px;
+    background:var(--ink);
+    transition:transform .3s ease, opacity .3s ease, top .3s ease;
+  }
+  .nav-toggle span:nth-child(1){top:0;}
+  .nav-toggle span:nth-child(2){top:10px;}
+  .nav-toggle span:nth-child(3){top:20px;}
+  .nav-toggle.open span:nth-child(1){top:10px; transform:rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){top:10px; transform:rotate(-45deg);}
+
+  .mobile-panel{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:var(--paper);
+    z-index:90;
+    padding:110px var(--edge) 40px;
+    transform:translateY(-8px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .mobile-panel.open{
+    opacity:1; transform:translateY(0); pointer-events:auto;
+  }
+  .mobile-panel a{
+    display:block;
+    font-family:var(--serif);
+    font-size:30px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:120px 0;
+    position:relative;
+  }
+  .section-head{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:40px;
+    margin-bottom:56px;
+  }
+  .section-label{
+    font-size:14px;
+    color:var(--ink-faint);
+    padding-top:8px;
+  }
+  .section-title{
+    font-size:clamp(28px, 3.6vw, 40px);
+    max-width:640px;
+  }
+
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  [data-reveal].in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:186px 0 110px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:60px;
+    align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:100px;
+    margin-bottom:34px;
+  }
+  .hero-tag .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--accent);
+    flex:none;
+  }
+  .hero-name{
+    font-size:clamp(16px, 1.6vw, 18px);
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    font-weight:500;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5.6vw, 66px);
+    line-height:1.08;
+    max-width:15ch;
+  }
+  .hero-intro{
+    margin-top:30px;
+    font-size:17.5px;
+    color:var(--ink-soft);
+    max-width:52ch;
+    line-height:1.75;
+  }
+  .hero-cta-row{
+    display:flex;
+    gap:16px;
+    margin-top:44px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 26px;
+    font-size:14.5px;
+    font-weight:500;
+    border-radius:3px;
+    transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--paper);
+    border:1px solid var(--ink);
+  }
+  .btn-primary:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    transform:translateY(-1px);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover{
+    border-color:var(--ink);
+    transform:translateY(-1px);
+  }
+  .hero-socials{
+    display:flex;
+    gap:26px;
+    margin-top:54px;
+  }
+  .hero-socials a{
+    font-size:14px;
+    color:var(--ink-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding-bottom:2px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .hero-socials a:hover{
+    color:var(--ink);
+    border-color:var(--ink-soft);
+  }
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:1/1.05;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-visual svg{width:100%; height:100%;}
+  .hero-visual .mono{
+    position:absolute;
+    font-family:var(--serif);
+    font-size:clamp(160px,20vw,260px);
+    color:var(--ink);
+    opacity:0.05;
+    font-weight:450;
+    user-select:none;
+  }
+  .grid-line{
+    stroke:var(--line);
+    stroke-width:1;
+  }
+  .grid-line-accent{
+    stroke:var(--accent);
+    stroke-width:1.2;
+    stroke-dasharray:400;
+    stroke-dashoffset:400;
+    animation:draw 1.8s ease forwards .3s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .node-dot{
+    fill:var(--accent);
+    opacity:0;
+    animation:fadein .6s ease forwards 1.6s;
+  }
+  @keyframes fadein{ to{opacity:1;} }
+  @media (prefers-reduced-motion: reduce){
+    .grid-line-accent{stroke-dashoffset:0; animation:none;}
+    .node-dot{opacity:1; animation:none;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-body{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:40px;
+  }
+  .about-text{
+    max-width:640px;
+    font-size:17px;
+    color:var(--ink-soft);
+  }
+  .about-text p{margin-bottom:22px;}
+  .about-text p:last-child{margin-bottom:0;}
+  .about-text strong{color:var(--ink); font-weight:500;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{
+    position:relative;
+  }
+  .timeline::before{
+    content:'';
+    position:absolute;
+    left:8px;
+    top:6px;
+    bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .tl-item{
+    position:relative;
+    padding-left:52px;
+    padding-bottom:56px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{
+    position:absolute;
+    left:0; top:6px;
+    width:17px; height:17px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1px solid var(--accent);
+  }
+  .tl-dot::after{
+    content:'';
+    position:absolute;
+    inset:4px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+  .tl-role{
+    font-size:21px;
+    margin-bottom:4px;
+  }
+  .tl-org{
+    font-size:14.5px;
+    color:var(--accent);
+    margin-bottom:16px;
+    font-weight:500;
+  }
+  .tl-points{
+    display:grid;
+    gap:9px;
+    max-width:620px;
+  }
+  .tl-points li{
+    font-size:15.5px;
+    color:var(--ink-soft);
+    padding-left:18px;
+    position:relative;
+    line-height:1.65;
+  }
+  .tl-points li::before{
+    content:'';
+    position:absolute;
+    left:0; top:9px;
+    width:5px; height:1px;
+    background:var(--ink-faint);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .skill-card{
+    background:var(--paper);
+    padding:34px 30px;
+  }
+  .skill-card h3{
+    font-size:16px;
+    font-weight:600;
+    font-family:var(--sans);
+    margin-bottom:20px;
+    color:var(--ink);
+  }
+  .tag-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .tag{
+    font-size:13px;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    padding:6px 12px;
+    border-radius:100px;
+    background:var(--paper-alt);
+  }
+  .tag.learning{
+    color:var(--accent);
+    border-color:var(--accent-soft);
+    background:var(--accent-tint);
+  }
+  .skills-note{
+    margin-top:26px;
+    font-size:14px;
+    color:var(--ink-faint);
+    max-width:560px;
+  }
+
+  /* ---------- DIRECTION ---------- */
+  .direction-body{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:40px;
+  }
+  .direction-text{
+    max-width:600px;
+    font-size:17px;
+    color:var(--ink-soft);
+    line-height:1.75;
+  }
+  .direction-text p{margin-bottom:18px;}
+  .flow{
+    margin-top:56px;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:0;
+  }
+  .flow-step{
+    font-family:var(--serif);
+    font-size:clamp(19px,2.2vw,26px);
+    color:var(--ink-faint);
+    padding:10px 0;
+    transition:color .3s ease;
+  }
+  .flow-step.is-active{color:var(--ink);}
+  .flow-arrow{
+    color:var(--line);
+    margin:0 18px;
+    font-size:18px;
+  }
+
+  /* ---------- INTERESTS ---------- */
+  .interests-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .interest-item{
+    background:var(--paper);
+    padding:30px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    transition:background .25s ease;
+  }
+  .interest-item:hover{background:var(--paper-alt);}
+  .interest-item svg{
+    width:22px; height:22px;
+    stroke:var(--accent);
+    fill:none;
+    stroke-width:1.4;
+  }
+  .interest-item span{
+    font-size:14.5px;
+    color:var(--ink);
+  }
+
+  /* ---------- PHILOSOPHY ---------- */
+  .philosophy{
+    padding:150px 0;
+    text-align:center;
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .philosophy blockquote{
+    font-family:var(--serif);
+    font-weight:450;
+    font-size:clamp(28px,4.4vw,50px);
+    line-height:1.3;
+    max-width:16ch;
+    margin:0 auto;
+  }
+  .philosophy .rule{
+    width:40px; height:1px;
+    background:var(--accent-soft);
+    margin:0 auto 40px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    text-align:center;
+  }
+  .contact-head{
+    max-width:520px;
+    margin:0 auto 56px;
+  }
+  .contact-head h2{
+    font-size:clamp(30px,4vw,44px);
+    margin-bottom:18px;
+  }
+  .contact-head p{
+    color:var(--ink-soft);
+    font-size:17px;
+  }
+  .contact-rows{
+    max-width:560px;
+    margin:0 auto;
+    border-top:1px solid var(--line);
+  }
+  .contact-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 4px;
+    border-bottom:1px solid var(--line);
+    gap:16px;
+  }
+  .contact-row .label{
+    font-size:14px;
+    color:var(--ink-faint);
+    text-align:left;
+  }
+  .contact-row .value{
+    font-size:16.5px;
+    text-align:right;
+  }
+  .contact-row a.value{
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .contact-row a.value:hover{
+    border-color:var(--ink);
+  }
+  .contact-cta{
+    margin-top:48px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:44px 0 50px;
+    border-top:1px solid var(--line);
+  }
+  .footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .footer-inner p{
+    font-size:13.5px;
+    color:var(--ink-faint);
+  }
+  .footer-links{
+    display:flex;
+    gap:24px;
+  }
+  .footer-links a{
+    font-size:13.5px;
+    color:var(--ink-faint);
+    transition:color .2s ease;
+  }
+  .footer-links a:hover{color:var(--ink);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+    .mobile-panel{display:block;}
+
+    .hero{padding-top:150px;}
+    .hero-grid{grid-template-columns:1fr; gap:70px;}
+    .hero-visual{order:-1; max-width:220px; margin:0 auto; aspect-ratio:1/1;}
+    .hero-visual .mono{font-size:120px;}
+
+    .section-head, .about-body, .direction-body{
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+
+    .skills-grid, .interests-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media (max-width:600px){
+    section{padding:84px 0;}
+    .hero{padding-top:130px; padding-bottom:80px;}
+    .hero-cta-row{flex-direction:column; align-items:stretch;}
+    .skills-grid, .interests-grid{grid-template-columns:1fr;}
+    .philosophy{padding:100px 0;}
+    .contact-row{flex-direction:column; align-items:flex-start; gap:4px;}
+    .contact-row .value{text-align:left;}
+    .footer-inner{flex-direction:column; align-items:flex-start;}
+    .tl-role{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a class="nav-mark" href="#home">Bhumi Chandrawat</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#direction">Direction</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#direction">Direction</a>
+  <a href="#interests">Interests</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-tag"><span class="dot"></span>BCA Student — JECRC University</div>
+        <div class="hero-name">Bhumi Chandrawat</div>
+        <h1>Building clarity at the intersection of Technology, Business &amp; AI.</h1>
+        <p class="hero-intro">I'm a BCA student at JECRC University exploring how technology and AI can be transformed into practical solutions for real business problems. My experience spans research, outreach, client acquisition, campus initiatives and technology.</p>
+        <div class="hero-cta-row">
+          <a href="#experience" class="btn btn-primary">View My Experience</a>
+          <a href="#contact" class="btn btn-ghost">Let's Connect</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://www.linkedin.com/in/bhumi-chandrawat-024044283" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <!-- Update href with GitHub profile once available -->
+          <a href="#" aria-disabled="true">GitHub</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <span class="mono">BC</span>
+        <svg viewBox="0 0 300 300">
+          <line class="grid-line" x1="0" y1="150" x2="300" y2="150"></line>
+          <line class="grid-line" x1="150" y1="0" x2="150" y2="300"></line>
+          <circle class="grid-line" cx="150" cy="150" r="110" fill="none"></circle>
+          <circle class="grid-line-accent" cx="150" cy="150" r="70" fill="none"></circle>
+          <circle class="node-dot" cx="150" cy="80" r="4"></circle>
+          <circle class="node-dot" cx="220" cy="150" r="4"></circle>
+          <circle class="node-dot" cx="150" cy="220" r="4"></circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="section-label">About</div>
+        <h2 class="section-title">Learning the craft, and the business behind it.</h2>
+      </div>
+      <div class="about-body">
+        <div></div>
+        <div class="about-text" data-reveal>
+          <p>I'm currently pursuing my BCA at JECRC University, where I'm building my foundation in programming, databases, problem solving and technology.</p>
+          <p>Beyond academics, I've actively explored the business side of technology through <strong>client acquisition, outreach, research, campus initiatives</strong> and event volunteering.</p>
+          <p>These experiences have taught me how to identify opportunities, understand people and their needs, conduct structured research, communicate effectively and think beyond just the technical implementation.</p>
+          <p>I'm particularly interested in the future of AI-driven products and business solutions — especially where technology can simplify complex problems and create measurable value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="section-label">Experience</div>
+        <h2 class="section-title">Real-world exposure, built through research and outreach.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-role">Outreach &amp; Research Team Member</div>
+          <div class="tl-org">JECRC University — Office of International Affairs</div>
+          <ul class="tl-points">
+            <li>Researched 100+ international universities and institutions.</li>
+            <li>Worked on structured university research and outreach.</li>
+            <li>Coordinated research-related activities with team members.</li>
+            <li>Contributed to alumni calling and outreach initiatives.</li>
+            <li>Worked on outreach for an international academic trip.</li>
+            <li>Gained practical experience in research, communication, lead generation and coordination.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-role">Client Acquisition Intern</div>
+          <div class="tl-org">Client Acquisition &amp; Business Research</div>
+          <ul class="tl-points">
+            <li>Prospect research and lead generation.</li>
+            <li>Identified potential business clients.</li>
+            <li>Handled outreach and communication.</li>
+            <li>Worked on understanding business requirements.</li>
+            <li>Explored technology-based solutions for businesses.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-role">Campus Ambassador</div>
+          <div class="tl-org">Wayspire · IIT Kharagpur Initiatives</div>
+          <ul class="tl-points">
+            <li>Led outreach and communication on campus.</li>
+            <li>Promoted programs and initiatives to student communities.</li>
+            <li>Built community engagement around the initiatives.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-role">Volunteer — Major Events</div>
+          <div class="tl-org">Innov8 · WOW Hospitality Team</div>
+          <ul class="tl-points">
+            <li>Coordinated on-ground event execution.</li>
+            <li>Worked closely within a team under time pressure.</li>
+            <li>Managed communication across event touchpoints.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-role">Class Representative</div>
+          <div class="tl-org">JECRC University</div>
+          <ul class="tl-points">
+            <li>Coordinated communication between students and faculty.</li>
+            <li>Took ownership of day-to-day class coordination.</li>
+            <li>Handled recurring problem solving for the batch.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="section-label">Skills</div>
+        <h2 class="section-title">Breadth across technology, business and structured thinking.</h2>
+      </div>
+
+      <div class="skills-grid" data-reveal>
+        <div class="skill-card">
+          <h3>Technology</h3>
+          <div class="tag-list">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag learning">Python — Learning</span>
+            <span class="tag learning">C — Learning</span>
+            <span class="tag learning">C++ — Learning</span>
+            <span class="tag learning">Java — Learning</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Git &amp; GitHub</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Business &amp; Growth</h3>
+          <div class="tag-list">
+            <span class="tag">Client Acquisition</span>
+            <span class="tag">Lead Generation</span>
+            <span class="tag">Outreach</span>
+            <span class="tag">Business Research</span>
+            <span class="tag">Market Research</span>
+            <span class="tag">Growth Strategy</span>
+            <span class="tag">Communication</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>AI &amp; Productivity</h3>
+          <div class="tag-list">
+            <span class="tag">AI-Assisted Workflows</span>
+            <span class="tag">AI Tools</span>
+            <span class="tag">Research &amp; Synthesis</span>
+            <span class="tag">AI Automation — Exploring</span>
+            <span class="tag">Prompting</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Problem Solving</h3>
+          <div class="tag-list">
+            <span class="tag">Logical Reasoning</span>
+            <span class="tag">Analytical Thinking</span>
+            <span class="tag">Structured Problem Solving</span>
+            <span class="tag">Data Interpretation</span>
+          </div>
+        </div>
+      </div>
+      <p class="skills-note" data-reveal>Programming skills are labelled honestly — some are working knowledge, others are still developing.</p>
+    </div>
+  </section>
+
+  <!-- DIRECTION -->
+  <section id="direction">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="section-label">Direction</div>
+        <h2 class="section-title">Where I'm Headed</h2>
+      </div>
+      <div class="direction-body">
+        <div></div>
+        <div data-reveal>
+          <div class="direction-text">
+            <p>My long-term goal is to work at the intersection of AI, technology and business — understanding real-world problems, shaping useful products and helping teams turn ideas into practical solutions.</p>
+            <p>I'm currently strengthening my foundations in programming, data, problem solving, business research and product thinking.</p>
+          </div>
+          <div class="flow">
+            <span class="flow-step is-active">Learn</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Build</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Understand</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Solve</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Lead</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section id="interests">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="section-label">Interests</div>
+        <h2 class="section-title">What I pay attention to.</h2>
+      </div>
+
+      <div class="interests-grid" data-reveal>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="4" r="1.4"/><circle cx="19" cy="12" r="1.4"/><circle cx="12" cy="20" r="1.4"/><circle cx="5" cy="12" r="1.4"/><path d="M12 7v2M17.6 12H16M12 17v-2M6.4 12H8"/></svg>
+          <span>AI Products</span>
+        </div>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+          <span>Business Solutions</span>
+        </div>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/><path d="M11 7.5h5.5M16.5 7.5V13M7.5 11v5.5"/></svg>
+          <span>Product Thinking</span>
+        </div>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 18v3"/></svg>
+          <span>Technology</span>
+        </div>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3L21 21"/></svg>
+          <span>Research</span>
+        </div>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          <span>Automation</span>
+        </div>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+          <span>Growth &amp; Strategy</span>
+        </div>
+        <div class="interest-item">
+          <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
+          <span>Problem Solving</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="wrap">
+      <div class="rule" data-reveal></div>
+      <blockquote data-reveal>"Clarity is the strongest expression of intelligence."</blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-head" data-reveal>
+        <h2>Let's Connect</h2>
+        <p>Have an idea, opportunity, or interesting problem to discuss? Let's connect.</p>
+      </div>
+
+      <div class="contact-rows" data-reveal>
+        <div class="contact-row">
+          <span class="label">Email</span>
+          <a class="value" href="mailto:bhumichandrawat04@gmail.com">bhumichandrawat04@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Phone</span>
+          <a class="value" href="tel:+919587777027">+91 95877 77027</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">LinkedIn</span>
+          <a class="value" href="https://www.linkedin.com/in/bhumi-chandrawat-024044283" target="_blank" rel="noopener noreferrer">bhumi-chandrawat</a>
+        </div>
+      </div>
+
+      <div class="contact-cta" data-reveal>
+        <a class="btn btn-primary" href="mailto:bhumichandrawat04@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year"></span> Bhumi Chandrawat</p>
+    <div class="footer-links">
+      <a href="#home">Back to top</a>
+      <a href="https://www.linkedin.com/in/bhumi-chandrawat-024044283" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav scroll state
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => {
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile nav
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('mobilePanel');
+  toggle.addEventListener('click', () => {
+    const open = panel.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  panel.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      panel.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Reveal on scroll
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  } else if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
+
+  // Direction flow — highlight steps progressively as section is in view
+  const flowSteps = document.querySelectorAll('.flow-step');
+  const directionSection = document.getElementById('direction');
+  if (directionSection && !reduceMotion && 'IntersectionObserver' in window) {
+    const flowIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          flowSteps.forEach((step, i) => {
+            setTimeout(() => step.classList.add('is-active'), i * 220);
+          });
+          flowIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    flowIO.observe(directionSection);
+  } else {
+    flowSteps.forEach(s => s.classList.add('is-active'));
+  }
+</script>
+
+</body>
+</html>
